@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const fs = require('fs');
 const { json } = require('stream/consumers');
+const port = process.env.PORT || 3000;
 
 let app = express();
 app.use(express.json());
@@ -54,6 +55,6 @@ app.get('/movie/:id', (req, res) => {
   res.status(200).send(html.replace('{{%movieid%}}', id));
 })
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server is running on http://localhost:3000');
 })
